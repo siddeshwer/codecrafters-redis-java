@@ -21,8 +21,8 @@ public class Main {
           // Wait for connection from client.
           clientSocket = serverSocket.accept();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            String pingInput = bufferedReader.readLine();
-            while (pingInput != null){
+            String pingInput ;
+            while ((pingInput = bufferedReader.readLine()) != null){
                 if(pingInput.equals("PING")){
                     clientSocket.getOutputStream().write("+PONG\r\n".getBytes());
                 }
